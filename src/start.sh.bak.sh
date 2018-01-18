@@ -8,7 +8,7 @@ while 1>0;do
     minute=$(date +%M)
     second=$(date +%S)
     echo $year/$month/$day/$hour:$minute:$second >> a.txt
-    if [[ $hour -eq "06" || $hour -eq "18" ]];then
+    if [[ $minute -eq "00" || $minute -eq "15" || $minute -eq "30" || $minute -eq "45" ]];then
         echo "start execute" >> a.txt
         uiautomator runtest mtbf.jar -c com.yunos.mtbf.tests.setup.SetupInput -e runner com.yunos.test.uitest.framework.AliUiTestRunner
         echo "finish execute" >> a.txt
